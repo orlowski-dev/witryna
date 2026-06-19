@@ -7,3 +7,4 @@
 - Patryk Orłowski - kierownik
 - Sylwia Ziółkowska
 - Amelia Kwiatkowska
+- Dawid Rębowski
