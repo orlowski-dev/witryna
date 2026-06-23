@@ -37,3 +37,8 @@ css .categories {
 .authors {
     background-color: #e6e9fa;
 }
+
+form .btn-light {
+  color: var(--color-400);
+  font-weight: 500;
+}
