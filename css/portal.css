@@ -1,19 +1,39 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 :root {
-  --color-100: #e6e9fa;
-  --color-200: #9fa7d6;
-  --color-300: #5e70d6;
-  --color-400: #3d48aa;
-  --color-500: #2241f7;
+    --color-100: #e6e9fa;
+    --color-200: #9fa7d6;
+    --color-300: #5e70d6;
+    --color-400: #3d48aa;
+    --color-500: #2241f7;
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  color: #000;
-  background-color: #fff;
+    font-family: "Roboto", sans-serif;
+    color: #000;
+    background-color: #fff;
 }
 
 .container-fluid {
-  padding: 0;
+    padding: 0;
+}
+
+css .categories {
+    background-color: var(--color-300);
+}
+
+.category-card .bi {
+    font-size: 2rem;
+}
+
+.category-card {
+    text-align: center;
+}
+
+.category-card h2 {
+    font-weight: normal;
+}
+
+.authors {
+    background-color: #e6e9fa;
 }
