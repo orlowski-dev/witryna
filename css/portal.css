@@ -39,6 +39,15 @@ css .categories {
 }
 
 form .btn-light {
-  color: var(--color-400);
-  font-weight: 500;
+    color: var(--color-400);
+    font-weight: 500;
+}
+
+:root {
+    --color-black: #000;
+}
+.footer {
+    background-color: var(--color-black);
+    color: var(--color-100);
+    padding-bottom: 5em !important;
 }
