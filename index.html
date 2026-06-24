@@ -11,8 +11,53 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" />
 </head>
 
-<body>
-    <!-- navigation menu -->
+<body
+        data-bs-spy="scroll"
+        data-bs-target="#mainNav"
+        data-bs-offset="56"
+        tabindex="0"
+    >
+        <!-- navigation menu -->
+        <nav
+            id="mainNav"
+            class="navbar navbar-expand-lg navbar-light bg-light fixed-top"
+        >
+            <div class="container">
+                <a class="navbar-brand" href="#onas">InfoInfo</a>
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarContent"
+                    aria-controls="navbarContent"
+                    aria-expanded="false"
+                >
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div
+                    class="collapse navbar-collapse justify-content-end"
+                    id="navbarContent"
+                >
+                    <ul class="navbar navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#onas">O nas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#kategorie">
+                                Kategorie
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#autorzy">Autorzy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#kontakt">Kontakt</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
     <main>
         <!-- hero section -->
         <div class="hero" id="onas">
