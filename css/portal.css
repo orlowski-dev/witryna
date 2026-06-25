@@ -21,11 +21,11 @@ body {
 }
 
 .categories {
-    background-color: var(--color-300);
+    background-color: var(--color-200);
 }
 
 .category-card .bi {
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .category-card {
@@ -36,8 +36,13 @@ body {
     font-weight: normal;
 }
 
+.contact {
+    background-color: var(--color-400);
+    color: var(--color-100);
+}
+
 .authors {
-    background-color: #e6e9fa;
+    background-color: var(--color-100);
 }
 
 form .btn-light {
@@ -55,4 +60,8 @@ form .btn-light {
 .row {
     margin-right: auto;
     margin-left: auto;
+}
+
+.padding-72 {
+    padding-top: calc(3rem + 72px) !important;
 }
