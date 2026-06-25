@@ -1,0 +1,56 @@
+# To nazwa workflow będzie widoczna w zakładce Actions w repozytorium.
+name: Deploy static site to GitHub Pages
+
+# ta część określa, kiedy workflow ma się uruchomić
+on:
+  # ten zapis uruchom workflow po wypchnięciu zmian do gałęzi main
+  push:
+    branches:
+      - main
+  # ten zapis pozwala uruchomić workflow ręcznie z zakładki Actions
+  workflow_dispatch:
+
+# ta sekcja określa uprawnienia tokena, którego GitHub Actions używa podczas wykonywania workflow.
+permissions:
+  # Workflow może odczytać zawartość repozytorium. To potrzebne, aby pobrać pliki strony: index.html, css/portal.css, katalog img itd.
+  contents: read
+  # To uprawnienie jest potrzebne do bezpiecznego uwierzytelnienia procesu wdrażania przy GitHub Pages.
+  pages: write
+  # ta sekcja kontroluje, co się stanie, jeśli kilka uruchomień workflow pojawi się w „tym samym” czasie (blisko siebie)
+  id-token: write
+
+# ta sekcja kontroluje, co się stanie, jeśli kilka uruchomień workflow pojawi się w „tym samym” czasie (blisko siebie)
+concurrency:
+  # ta sekcja kontroluje, co się stanie, jeśli kilka uruchomień workflow pojawi się w „tym samym” czasie (blisko siebie)
+  group: pages
+  # nowe uruchomienie nie anuluje poprzedniego, które już trwa.
+  cancel-in-progress: false
+
+jobs:
+  # każdy workflow składa się z zadań, czyli jobs. Tutaj mamy jedno zadanie o nazwie technicznej deploy, czyli wdrożenie strony.
+  deploy:
+    # ta część kodu wskazuje środowisko wdrażania
+    environment:
+      # to nazwa środowiska używanego przez GitHub Pages.
+      name: github-pages
+      #po zakończeniu deploymentu pobierany jest adres opublikowanej strony z wyniku kroku deployment.
+      url: ${{ steps.deployment.outputs.page_url }}
+    # oznacza najnowsze dostępne środowisko Ubuntu udostępnione przez GitHub Actions. Nie oznacza to, że strona będzie działała na Ubuntu. To tylko tymczasowe środowisko robocze, w którym GitHub wykonuje kolejne kroki workflow
+    runs-on: ubuntu-latest
+    # określa kroki do wykonania podczas wdrażania i publikacji strony:
+    steps:
+      # pobranie repozytorium:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      # konfiguracja Pages:
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      # spakowanie plików strony jako artefaktu:
+      - name: Upload static files
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: "."
+      # opublikowanie artefaktu w GitHub Pages:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
