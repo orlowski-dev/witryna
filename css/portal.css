@@ -6,6 +6,7 @@
     --color-300: #5e70d6;
     --color-400: #3d48aa;
     --color-500: #2241f7;
+    --color-black: #000;
 }
 
 body {
@@ -14,11 +15,12 @@ body {
     background-color: #fff;
 }
 
-.container-fluid {
-    padding: 0;
+.hero {
+    background-color: var(--color-400);
+    color: white;
 }
 
-css .categories {
+.categories {
     background-color: var(--color-300);
 }
 
@@ -43,11 +45,14 @@ form .btn-light {
     font-weight: 500;
 }
 
-:root {
-    --color-black: #000;
-}
 .footer {
     background-color: var(--color-black);
     color: var(--color-100);
     padding-bottom: 5em !important;
+}
+
+/* oby nigdy więcej bootstrap */
+.row {
+    margin-right: auto;
+    margin-left: auto;
 }
